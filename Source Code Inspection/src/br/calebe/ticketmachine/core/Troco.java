@@ -79,10 +79,12 @@ class Troco {
             return ret;
         }
 
+        // Esse método não existe na documentação
         @Override
         public void remove() {
             next();
         }
     }
 }
+
 
