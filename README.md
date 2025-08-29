@@ -24,10 +24,9 @@
 
 ## Integrantes do Grupo
 
-- Nome 1 — RA:  
-- Nome 2 — RA:  
-- Nome 3 — RA:  
-- Nome 4 — RA:  
+- Nome: Geovanna da Silva Lima — RA: 10420059
+- Nome: Guilherme Soares Santos — RA: 10428380
+- Nome: Pedro Henrique Mansano Fernandes — RA:10388037
 
 ---
 
