@@ -14,6 +14,7 @@ public class TicketMachine {
     protected int saldo;
     protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
+    // O nome da variável não bate com a variavel
     public TicketMachine(int valor) {
         this.valor = valor;
         this.saldo = 0;
@@ -39,6 +40,7 @@ public class TicketMachine {
 
     // Está realizando um get de uma variável que não foi declarada
     public Iterator<Integer> getTroco() {
+        // O metodo não deveria retornar null
         return null;
     }
 
@@ -52,4 +54,5 @@ public class TicketMachine {
         return result;
     }
 }
+
 
