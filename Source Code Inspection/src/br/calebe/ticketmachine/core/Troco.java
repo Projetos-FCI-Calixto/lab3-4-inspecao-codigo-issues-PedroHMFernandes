@@ -41,6 +41,7 @@ class Troco {
         while (valor % 2 != 0) {
             count++;
         }
+        // O índice desse array deveria ser 0 (zero)
         papeisMoeda[1] = new PapelMoeda(2, count);
     }
 
@@ -84,3 +85,4 @@ class Troco {
         }
     }
 }
+
