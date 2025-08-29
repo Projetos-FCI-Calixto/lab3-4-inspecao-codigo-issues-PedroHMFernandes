@@ -22,7 +22,8 @@ public class TicketMachine {
     public void inserir(int quantia) throws PapelMoedaInvalidaException {
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) {
+            if (papelMoeda[1] == quantia) { 
+                // Nesta parte do código a única nota de papelMoeda aceita é a de R$5,00, se o usuário colocar outra nota diferente dessa uma exceção é retornada
                 achou = true;
             }
         }
@@ -36,6 +37,7 @@ public class TicketMachine {
         return saldo;
     }
 
+    // Está realizando um get de uma variável que não foi declarada
     public Iterator<Integer> getTroco() {
         return null;
     }
@@ -50,3 +52,4 @@ public class TicketMachine {
         return result;
     }
 }
+
