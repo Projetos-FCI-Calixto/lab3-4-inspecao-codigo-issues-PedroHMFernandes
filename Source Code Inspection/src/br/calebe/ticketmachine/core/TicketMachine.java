@@ -14,7 +14,7 @@ public class TicketMachine {
     protected int saldo;
     protected int[] papelMoeda = {2, 5, 10, 20, 50, 100};
 
-    // O nome da variável não bate com a variavel
+    // Comissão, severidade baixa: O nome da variável valor deveria ser precoDoBilhete
     public TicketMachine(int valor) {
         this.valor = valor;
         this.saldo = 0;
@@ -23,8 +23,7 @@ public class TicketMachine {
     public void inserir(int quantia) throws PapelMoedaInvalidaException {
         boolean achou = false;
         for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) { 
-                // Nesta parte do código a única nota de papelMoeda aceita é a de R$5,00, se o usuário colocar outra nota diferente dessa uma exceção é retornada
+            if (papelMoeda[1] == quantia) {  //Defeito de Dados, severidade alta: a máquina só aceita a nota de R$5,00 e ignora as demais (2, 10, 20, 50, 100). O correto seria comparar com papelMoeda[i].
                 achou = true;
             }
         }
@@ -38,12 +37,14 @@ public class TicketMachine {
         return saldo;
     }
 
-    // Está realizando um get de uma variável que não foi declarada
+    //Defeito de Comissão, severidade alta: o método getTroco não foi desenvolvido conforme a especificação
     public Iterator<Integer> getTroco() {
-        // O metodo não deveria retornar null
         return null;
     }
 
+    /*Defeito de Comissão, severidade alta: apesar de não estar na especificação, entende-se que, se o saldo é maior que o valor,
+    deveria descontar o valor do bilhete impresso do saldo.
+    */
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
             throw new SaldoInsuficienteException();
