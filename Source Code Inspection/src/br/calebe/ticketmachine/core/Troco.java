@@ -9,7 +9,8 @@ import java.util.Iterator;
 class Troco {
 
     protected PapelMoeda[] papeisMoeda;
-
+    
+    // Defeito de Computação/Desempenho, severidade alta: Nos loops while (valor % 100 != 0) e similares o valor não é decrementado, resultando em loop infinito.
     public Troco(int valor) {
         papeisMoeda = new PapelMoeda[6];
         int count = 0;
@@ -41,7 +42,7 @@ class Troco {
         while (valor % 2 != 0) {
             count++;
         }
-        // O índice desse array deveria ser 0 (zero)
+        // Defeito de Dados, severidade alta: sobrescreve a posição [1] usada para a nota de 5. O índice deveria ser 0 (zero).
         papeisMoeda[1] = new PapelMoeda(2, count);
     }
 
@@ -68,9 +69,10 @@ class Troco {
         }
 
         @Override
+        // Defeito de Controle: Condição ret != null impede que o loop execute, pois ret começa nulo.
         public PapelMoeda next() {
             PapelMoeda ret = null;
-            for (int i = 6; i >= 0 && ret != null; i++) {
+            for (int i = 6; i >= 0 && ret != null; i++) { // Defeito de Dados, severidade alta: O array tem tamanho 6, índices válidos são 0..5. Isso gera ArrayIndexOutOfBoundsException.
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];
                     troco.papeisMoeda[i] = null;
@@ -79,7 +81,7 @@ class Troco {
             return ret;
         }
 
-        // Esse método não existe na documentação
+        // Defeito de Comissão, severidade alta: método não consta na especificação
         @Override
         public void remove() {
             next();
